@@ -15,6 +15,8 @@ import numeral from "numeral";
 import Map from "./Map";
 import "leaflet/dist/leaflet.css";
 
+//STATE-> how to write a variable in React
+
 const App = () => {
   const [country, setInputCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
@@ -24,6 +26,9 @@ const App = () => {
   const [casesType, setCasesType] = useState("cases");
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
+  
+  //USEEFFECT-> Runs a piece of code based on a given condition
+  //Runs only once, only when the component loads
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -32,6 +37,9 @@ const App = () => {
         setCountryInfo(data);
       });
   }, []);
+  
+  //async-> Send a request, wait for it, and do something with the input
+  //When we make async request, we wait for it to respond back before we carry on. So here we have promise for every async request
 
   useEffect(() => {
     const getCountriesData = async () => {
